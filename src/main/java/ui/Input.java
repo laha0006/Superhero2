@@ -7,6 +7,11 @@ import java.util.Scanner;
 public class Input {
     private static final Scanner scanner = new Scanner(System.in);
 
+    public static void back() {
+        System.out.println("Press ENTER to go BACK.");
+        String input = inputString(">");
+    }
+
     public static String inputString(String prompt) {
         String output = "";
         System.out.print(prompt);
@@ -56,7 +61,7 @@ public class Input {
                 scanner.nextLine();
                 return value;
             } catch (InputMismatchException e) {
-                System.out.println("Must be number!");
+                System.out.println("Must be a number!");
                 scanner.nextLine();
             }
         }
