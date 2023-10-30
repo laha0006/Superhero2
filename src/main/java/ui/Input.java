@@ -5,17 +5,9 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Input {
-    private final Scanner scanner;
+    private static final Scanner scanner = new Scanner(System.in);
 
-    public Input() {
-        scanner = new Scanner(System.in);
-    }
-
-    public Input(Scanner scanner) {
-        this.scanner = scanner;
-    }
-
-    public String inputString(String prompt) {
+    public static String inputString(String prompt) {
         String output = "";
         System.out.print(prompt);
 
@@ -28,7 +20,7 @@ public class Input {
         }
     }
 
-    public String inputStringAsInt(String prompt) {
+    public static String inputStringAsInt(String prompt) {
         String output = "";
         while(true) {
             System.out.print(prompt);
@@ -42,7 +34,7 @@ public class Input {
         }
     }
 
-    public char inputChar(String prompt) {
+    public static char inputChar(String prompt) {
         System.out.print(prompt);
         while (true) {
             try {
@@ -55,7 +47,7 @@ public class Input {
         }
     }
 
-    public int inputInt(String prompt) {
+    public static int inputInt(String prompt) {
 
         while (true) {
             try {
