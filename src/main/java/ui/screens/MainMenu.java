@@ -1,5 +1,6 @@
 package ui.screens;
 
+import domain.Controller;
 import ui.Input;
 import ui.table.Row;
 import ui.table.Table;
@@ -9,13 +10,13 @@ import java.util.List;
 
 public class MainMenu extends Screen {
     private final ArrayList<Screen> screens;
-    public MainMenu(String name) {
-        super(name);
+    public MainMenu(String name, Controller controller) {
+        super(name,controller);
         screens = new ArrayList<>();
     }
 
-    public MainMenu(String name,ArrayList<Screen> screens) {
-        super(name);
+    public MainMenu(String name,Controller controller,ArrayList<Screen> screens) {
+        super(name,controller);
         this.screens = screens;
     }
 
@@ -35,9 +36,9 @@ public class MainMenu extends Screen {
                 table.addRow(row);
                 count++;
             }
-            table.addRow(new Row().addCell("" + 0).addCell("To go BACK or EXIT"));
+            table.addRow(new Row().addCell("" + 0).addCell("EXIT"));
             System.out.println(table.getTableString());
-            int choice = Input.inputInt(": ");
+            int choice = Input.inputInt(">");
             if (choice == 0) return false;
             screens.get(choice - 1).show();
         }
