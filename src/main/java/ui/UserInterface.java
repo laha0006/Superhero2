@@ -12,8 +12,8 @@ public class UserInterface {
         this.controller = controller;
     }
     public void start() {
-        MainMenu mainMenu = new MainMenu("Superhero v2");
-        ShowDatabase showDatabase = new ShowDatabase("Show Database",controller);
+        MainMenu mainMenu = new MainMenu("Superhero v2",controller);
+        Screen showDatabase = new ShowDatabase("Show Database",controller);
         mainMenu.addScreen(showDatabase);
         boolean run = true;
         while(run) {
