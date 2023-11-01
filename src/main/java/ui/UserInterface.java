@@ -14,9 +14,11 @@ public class UserInterface {
         Screen showDatabase = new ShowDatabase("Show Database",controller);
         Screen addSuphero = new AddSuperhero("Add Supehero",controller);
         Screen editSuphero = new EditSuperhero("Edit Supehero",controller);
+        Screen deleteSuperhero = new DeleteSuperhero("Delete Superhero", controller);
         mainMenu.addScreen(showDatabase);
         mainMenu.addScreen(addSuphero);
         mainMenu.addScreen(editSuphero);
+        mainMenu.addScreen(deleteSuperhero);
 
         boolean run = true;
         while(run) {
