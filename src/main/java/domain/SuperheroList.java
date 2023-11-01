@@ -65,8 +65,8 @@ public class SuperheroList {
                 '}';
     }
 
-    public void delete(int index) {
-        superheroList.remove(index);
+    public void delete(Superhero superhero) {
+        superheroList.remove(superhero);
         save();
     }
 
