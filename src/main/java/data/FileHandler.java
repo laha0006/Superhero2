@@ -11,12 +11,12 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Database {
+public class FileHandler {
     private final String CSV_FILE_NAME = "superheroes.csv";
 
     private final List<String[]> dataLines;
 
-    public Database() {
+    public FileHandler() {
         dataLines = new ArrayList<>();
         dataLines.add(new String[]
                 {"John", "Doe", "38", "Comment Data\nAnother line of comment data"});
