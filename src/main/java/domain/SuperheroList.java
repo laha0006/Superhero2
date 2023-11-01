@@ -1,21 +1,21 @@
 package domain;
 
-import data.Database;
+import data.FileHandler;
 
 import java.util.ArrayList;
 
 public class SuperheroList {
     private final ArrayList<Superhero> superheroList;
-    private final Database db;
+    private final FileHandler fileHandler;
 
     public SuperheroList() {
         superheroList = new ArrayList<>();
-        db = new Database();
+        fileHandler = new FileHandler();
         loadDatabaseIntoList();
     }
 
     private void loadDatabaseIntoList() {
-        ArrayList<String[]> data = db.loadData();
+        ArrayList<String[]> data = fileHandler.loadData();
         for(String[] sh : data) {
             superheroList.add(new Superhero(sh[0],
                     sh[1],
@@ -27,7 +27,7 @@ public class SuperheroList {
     }
 
     public void save() {
-        db.writeToCsv(superheroList);
+        fileHandler.writeToCsv(superheroList);
     }
 
     public void addSuperhero(Superhero superhero) {
