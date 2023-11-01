@@ -1,14 +1,4 @@
-import data.Database;
-
-import java.io.File;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-
 import domain.Controller;
-import domain.Superhero;
 import ui.UserInterface;
 
 public class Main {
