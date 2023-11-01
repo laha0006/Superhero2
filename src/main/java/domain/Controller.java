@@ -1,7 +1,5 @@
 package domain;
 
-import data.Database;
-
 import java.util.ArrayList;
 
 public class Controller {
