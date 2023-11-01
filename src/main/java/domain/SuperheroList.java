@@ -2,10 +2,10 @@ package domain;
 
 import java.util.ArrayList;
 
-public class Database {
+public class SuperheroList {
     private final ArrayList<Superhero> superheroList;
 
-    public Database() {
+    public SuperheroList() {
         superheroList = new ArrayList<>();
         superheroList.add(new Superhero("Superman", "Clark Kent", false, "Super.", 1950, 999));
         superheroList.add(new Superhero("Batman", "Bruce Wayne", true, "Bat", 1940, 100));
