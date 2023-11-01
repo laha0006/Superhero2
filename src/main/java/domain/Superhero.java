@@ -65,6 +65,9 @@ public class Superhero {
         this.strength = strength;
     }
 
+    public String[] getStringArray() {
+        return new String[]{name,realName, String.valueOf(isHuman),superPower, String.valueOf(creationYear),String.valueOf(strength)};
+    }
     @Override
     public String toString() {
         return "Superhero{" +
