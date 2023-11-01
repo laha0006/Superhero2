@@ -26,8 +26,13 @@ public class SuperheroList {
         }
     }
 
+    public void save() {
+        db.writeToCsv(superheroList);
+    }
+
     public void addSuperhero(Superhero superhero) {
         superheroList.add(superhero);
+        save();
     }
 
     public Superhero search(String superheroName) {
@@ -62,6 +67,7 @@ public class SuperheroList {
 
     public void delete(int index) {
         superheroList.remove(index);
+        save();
     }
 
 }
