@@ -1,14 +1,16 @@
 package domain;
 
+import data.Database;
+
 import java.util.ArrayList;
 
 public class Controller {
 
-    private final SuperheroList db;
+    private final SuperheroList superheroList;
     public Controller() {
-        db = new SuperheroList();
+        superheroList = new SuperheroList();
     }
     public ArrayList<Superhero> getSuperheroList() {
-        return db.getSuperheroList();
+        return superheroList.getSuperheroList();
     }
 }
