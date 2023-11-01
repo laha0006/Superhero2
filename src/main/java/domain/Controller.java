@@ -23,4 +23,12 @@ public class Controller {
     public void saveToDb() {
         superheroList.save();
     }
+
+    public Superhero search(String searchTerm) {
+        return superheroList.search(searchTerm);
+    }
+
+    public void delete(Superhero superhero) {
+        superheroList.delete(superhero);
+    }
 }
