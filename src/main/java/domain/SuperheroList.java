@@ -1,17 +1,29 @@
 package domain;
 
+import data.Database;
+
 import java.util.ArrayList;
 
 public class SuperheroList {
     private final ArrayList<Superhero> superheroList;
+    private final Database db;
 
     public SuperheroList() {
         superheroList = new ArrayList<>();
-        superheroList.add(new Superhero("Superman", "Clark Kent", false, "Super.", 1950, 999));
-        superheroList.add(new Superhero("Batman", "Bruce Wayne", true, "Bat", 1940, 100));
-        superheroList.add(new Superhero("Arrow", "Joe Spencer", true, "Arrow guy", 1950, 100));
-        superheroList.add(new Superhero("Spiderman", "Peter Parker", true, "Spider allergy", 1930, 88));
-        superheroList.add(new Superhero("Fat Fury", "Herbie Popnecker", true, "Fat fury, what more to say", 1958, 200));
+        db = new Database();
+        loadDatabaseIntoList();
+    }
+
+    private void loadDatabaseIntoList() {
+        ArrayList<String[]> data = db.loadData();
+        for(String[] sh : data) {
+            superheroList.add(new Superhero(sh[0],
+                    sh[1],
+                    Boolean. parseBoolean(sh[2]),
+                    sh[3],
+                    Integer.parseInt(sh[4]),
+                    Integer.parseInt(sh[5])));
+        }
     }
 
     public void addSuperhero(Superhero superhero) {
