@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class Controller {
 
-    private final Database db;
+    private final SuperheroList db;
     public Controller() {
-        db = new Database();
+        db = new SuperheroList();
     }
     public ArrayList<Superhero> getSuperheroList() {
         return db.getSuperheroList();
