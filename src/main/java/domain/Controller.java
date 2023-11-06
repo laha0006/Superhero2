@@ -31,4 +31,8 @@ public class Controller {
     public void delete(Superhero superhero) {
         superheroList.delete(superhero);
     }
+
+    public void sortBy(ArrayList<String> sortByAttributes) {
+        superheroList.sortBy(sortByAttributes);
+    }
 }
