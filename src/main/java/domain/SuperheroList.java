@@ -70,4 +70,7 @@ public class SuperheroList {
         save();
     }
 
+    public void sortBy(ArrayList<String> sortByAttributes) {
+
+    }
 }
