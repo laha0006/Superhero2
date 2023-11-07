@@ -33,6 +33,11 @@ public class Table {
 
     private final int size;
     private int length;
+    private Boolean sortHighlight = false;
+    private int sortPrimary;
+    private int sortSecondary;
+    private int order1;
+    private int order2;
 
     public Table(String header, ArrayList<String> columns) {
         this.header = header;
@@ -52,6 +57,14 @@ public class Table {
         columnSizes = new ArrayList<>();
         setInitColumnSizes();
         this.center = center;
+    }
+
+    public void setSortHighlight(int primary, int secondary,int order1, int order2) {
+        sortHighlight = true;
+        sortPrimary = primary;
+        sortSecondary = secondary;
+        this.order1 = order1;
+        this.order2 = order2;
     }
 
     private void calcLength() {
@@ -143,7 +156,23 @@ public class Table {
         columnsString.append(SEPERATOR).append(" ");
         if(center) {
             for (String s : columns) {
-                columnsString.append(centerText(s, columnSizes.get(count)));
+                if(sortHighlight) {
+                    String asc = "▲";
+                    String desc = "▼";
+                    String order = "";
+                    if(columns.indexOf(s) == sortPrimary) {
+                        order = order1 == 1 ? desc : asc;
+                        columnsString.append(Color.GREEN + centerText(s+" "+order, columnSizes.get(count)) + Color.RESET);
+                    }
+                    else if(columns.indexOf(s) == sortSecondary) {
+                        order = order2 == 1 ? desc : asc;
+                        columnsString.append(Color.ORANGE + centerText(s+" "+order, columnSizes.get(count)) + Color.RESET);
+                    } else {
+                        columnsString.append(centerText(s, columnSizes.get(count)));
+                    }
+                } else {
+                    columnsString.append(centerText(s, columnSizes.get(count)));
+                }
                 if (count != size - 1) {
                     columnsString.append(" ").append(SEPERATOR).append(" ");
                 }
