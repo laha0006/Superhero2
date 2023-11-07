@@ -32,7 +32,7 @@ public class Controller {
         superheroList.delete(superhero);
     }
 
-    public void sortBy(ArrayList<String> sortByAttributes) {
-        superheroList.sortBy(sortByAttributes);
+    public void sortBy(int primary, int secondary,int order1, int order2) {
+        superheroList.sortBy(primary,secondary,order1,order2);
     }
 }
