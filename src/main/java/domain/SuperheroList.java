@@ -1,8 +1,12 @@
 package domain;
 
 import data.FileHandler;
+import domain.comparators.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class SuperheroList {
     private final ArrayList<Superhero> superheroList;
@@ -70,7 +74,21 @@ public class SuperheroList {
         save();
     }
 
-    public void sortBy(ArrayList<String> sortByAttributes) {
+    public void sortBy(int primary, int secondary,int order1, int order2) {
+        ArrayList<Comparator<Superhero>> comparators = new ArrayList<>(List.of(
+                new SuperheroNameComparator(),
+                new SuperheroRealNameComparator(),
+                new SuperheroIsHumanComparator(),
+                new SuperheroSuperpowerComparator(),
+                new SuperheroStrengthComparator(),
+                new SuperheroYearCreatedComparator()
+        ));
+        Comparator<Superhero> primaryComparator = comparators.get(primary);
+        Comparator<Superhero> secondaryComparator = comparators.get(secondary);
+        if(order1 == 1) primaryComparator  = primaryComparator.reversed();
+        if(order2 == 1) secondaryComparator  = secondaryComparator.reversed();
+        superheroList.sort(primaryComparator
+                .thenComparing(secondaryComparator));
 
     }
 }
