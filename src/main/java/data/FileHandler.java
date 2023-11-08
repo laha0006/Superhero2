@@ -12,16 +12,14 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class FileHandler {
-    private final String CSV_FILE_NAME = "superheroes.csv";
-
-    private final List<String[]> dataLines;
+    private final String CSV_FILE_NAME;
 
     public FileHandler() {
-        dataLines = new ArrayList<>();
-        dataLines.add(new String[]
-                {"John", "Doe", "38", "Comment Data\nAnother line of comment data"});
-        dataLines.add(new String[]
-                {"Jane", "Doe, Jr.", "19", "She said \"I'm being quoted\""});
+        CSV_FILE_NAME = "superheroes.csv";
+    }
+
+    public FileHandler(String fileName) {
+        CSV_FILE_NAME = fileName;
     }
 
     public void save() {
@@ -36,7 +34,6 @@ public class FileHandler {
     }
 
     public String escapeSpecialCharacters(String data) {
-        System.out.println("escaped!");
         String escapedData = data.replaceAll("\\R", " ");
         if (data.contains(",") || data.contains("\"") || data.contains("'")) {
             data = data.replace("\"", "\"\"");
