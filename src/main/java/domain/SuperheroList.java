@@ -18,6 +18,12 @@ public class SuperheroList {
         loadDatabaseIntoList();
     }
 
+     public SuperheroList(String fileName) {
+        superheroList = new ArrayList<>();
+        fileHandler = new FileHandler(fileName);
+        loadDatabaseIntoList();
+    }
+
     private void loadDatabaseIntoList() {
         ArrayList<String[]> data = fileHandler.loadData();
         for(String[] sh : data) {
@@ -74,6 +80,11 @@ public class SuperheroList {
         save();
     }
 
+     public void delete(int index) {
+        superheroList.remove(index);
+        save();
+    }
+
     public void sortBy(int primary, int secondary,int order1, int order2) {
         ArrayList<Comparator<Superhero>> comparators = new ArrayList<>(List.of(
                 new SuperheroNameComparator(),
@@ -91,4 +102,7 @@ public class SuperheroList {
                 .thenComparing(secondaryComparator));
 
     }
+
+
+
 }
