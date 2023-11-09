@@ -12,8 +12,8 @@ public class UserInterface {
     public void start() {
         MainMenu mainMenu = new MainMenu("Superhero v2",controller);
         Screen showDatabase = new ShowDatabase("Show Database",controller);
-        Screen addSuphero = new AddSuperhero("Add Supehero",controller);
-        Screen editSuphero = new EditSuperhero("Edit Supehero",controller);
+        Screen addSuphero = new AddSuperhero("Add Superhero",controller);
+        Screen editSuphero = new EditSuperhero("Edit Superhero",controller);
         Screen searchDatabase = new SearchDatabase("Search Superhero", controller);
         Screen showSortedDatabase = new ShowSortedDatabase("Show Sorted Database",controller);
         Screen deleteSuperhero = new DeleteSuperhero("Delete Superhero", controller);
