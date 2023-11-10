@@ -53,11 +53,30 @@ public class Input {
     }
 
     public static int inputInt(String prompt) {
+        while (true) {
+            try {
+                System.out.print(prompt);
+                int value = scanner.nextInt();
+                scanner.nextLine();
+                return value;
+            } catch (InputMismatchException e) {
+                System.out.println("Must be a number!");
+                scanner.nextLine();
+            }
+        }
+    }
+
+    public static int inputInt(String prompt,int bound,boolean zeroInclusive) {
 
         while (true) {
             try {
                 System.out.print(prompt);
                 int value = scanner.nextInt();
+                int lowerBound = zeroInclusive ? 0 : 1;
+                if(value < lowerBound || value > bound) {
+                    System.out.println("Number must be between "+lowerBound +" and " + bound);
+                    continue;
+                }
                 scanner.nextLine();
                 return value;
             } catch (InputMismatchException e) {

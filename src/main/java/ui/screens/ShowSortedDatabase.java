@@ -28,15 +28,15 @@ public class ShowSortedDatabase extends Screen {
     }
 
     private void sortBy(String prompt) {
-        Table sortBy = new Table(prompt,
+        Table sortByTable = new Table(prompt,
                 new ArrayList<>(List.of("#","Attribute")));
         for(String attr : attributes) {
             if(!sortByAttributes.contains(attr)) {
-                sortBy.addRow(new Row().addCell(attributes.indexOf(attr)+1).addCell(attr));
+                sortByTable.addRow(new Row().addCell(attributes.indexOf(attr)+1).addCell(attr));
             }
         }
-        System.out.println(sortBy);
-        int choice = Input.inputInt("> ");
+        System.out.println(sortByTable);
+        int choice = Input.inputInt("> ",attributes.size(),false);
         sortByAttributes.add(attributes.get(choice-1));
     }
 
@@ -46,7 +46,7 @@ public class ShowSortedDatabase extends Screen {
         orderTable.addRow(new Row().addCell(1).addCell("Ascending"));
         orderTable.addRow(new Row().addCell(2).addCell("Descending"));
         System.out.println(orderTable);
-        int order = Input.inputInt("> ");
+        int order = Input.inputInt("> ",2,false);
         orderBy[index] = order-1;
     }
 

@@ -9,11 +9,6 @@ public class Main {
         Controller controller = new Controller();
         UserInterface ui = new UserInterface(controller);
         ui.start();
-//        ArrayList<Superhero> superheroes = controller.getSuperheroList();
-//        Database db = new Database();
-//        db.writeToCsv(superheroes);
-
-
     }
 
 

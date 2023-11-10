@@ -78,7 +78,7 @@ public class EditSuperhero extends Screen{
                     }
                     System.out.println(table.getTableString());
                     System.out.println("Select superhero to EDIT. 0 to exit.");
-                    int choice = Input.inputInt("> ");
+                    int choice = Input.inputInt("> ",result.size(),true);
                     if(choice == 0) run = false;
                     if (choice <= result.size() && choice > 0) {
                         run = editSuperhero(result.get(choice - 1));

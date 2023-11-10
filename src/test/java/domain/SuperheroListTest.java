@@ -44,6 +44,7 @@ class SuperheroListTest {
         //assert
         assertEquals(originalListSize + 1, superheroList.getSuperheroList().size());
         assertEquals(superheroToAdd,lastSuperhero);
+
         assertAll("SuperheroToAdd fields should match lastSuperhero in list)",
                 () -> assertEquals("QA",lastSuperhero.getName()),
                 () -> assertEquals("John Doe",lastSuperhero.getRealName()),
